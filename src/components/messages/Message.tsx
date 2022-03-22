@@ -1,4 +1,3 @@
-import Moment from "react-moment";
 import React from "react";
 
 const Message = (props: {
@@ -12,7 +11,7 @@ const Message = (props: {
       <li>
         <div>
           <span>{props.message.username}</span>
-          <Moment format="MM/DD/YYYY h:m">{Date.now()}</Moment>
+          <a>{Date.now()}</a>
         </div>
         <p>{props.message.message}</p>
       </li>

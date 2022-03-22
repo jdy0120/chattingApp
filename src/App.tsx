@@ -1,12 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
 import ConnectedUsers from "./components/connectedUsers/ConnectedUsers";
 import EnterUsername from "./components/EnterUsername";
+import Messages from "./components/messages/Messages";
 import io from "socket.io-client";
 
 const ENDPOINT = "http://localhost:3001";
-
 const socket = io(ENDPOINT);
 
 function App() {
@@ -21,6 +21,7 @@ function App() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
+    console.log(socket.connected);
     if (socket.connected) {
       socket.on("username-submitted-successfully", () => {
         setConnected(true);
@@ -75,6 +76,22 @@ function App() {
           setUsername={setUsername}
         />
       )}
+
+      {connected && (
+        <>
+          <ConnectedUsers connectedUsers={connectedUsers} />
+
+          <Messages
+            handleSendMessage={handleSendMessage}
+            message={message}
+            setMessage={setMessage}
+            messages={messages}
+            username={username}
+          ></Messages>
+        </>
+      )}
+
+      <ToastContainer position="bottom-right" />
     </div>
   );
 }
