@@ -1,3 +1,8 @@
+# socket.io를 이용한 채팅웹앱
+
+간단한 채팅웹앱입니다. React.js로 프론트엔드를 작업하고
+node.js로 [백엔드 작업](https://github.com/jdy0120/ChattingAppBack)을 진행했습니다.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

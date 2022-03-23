@@ -8,7 +8,7 @@ const Message = (props: {
 
   return (
     <>
-      <li>
+      <li className={messageReceived ? "message received" : "message sended"}>
         <div>
           <span>{props.message.username}</span>
           <a>{Date.now()}</a>
